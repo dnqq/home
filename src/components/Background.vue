@@ -39,7 +39,7 @@ const bgRandom = Math.floor(Math.random() * 10 + 1);
 // 更换壁纸链接
 const changeBg = (type) => {
   if (type == 0) {
-    bgUrl.value = "https://api.sqmn.eu.org/wallpaper/random";
+    bgUrl.value = "https://random.sqmn.eu.org";
   }
 };
 
