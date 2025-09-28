@@ -4,7 +4,7 @@
       <Icon size="20">
         <Link />
       </Icon>
-      <span class="title">提供服务列表</span>
+      <span class="title">提供服务</span>
     </div>
     <!-- 网站列表 -->
     <Swiper
