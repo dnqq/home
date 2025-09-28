@@ -21,12 +21,12 @@
         </div>
       </Transition>
       <go-end theme="filled" size="30" fill="#efefef" @click="changeMusicIndex(1)" />
-      <music-list
+      <!-- <music-list
         theme="filled"
         size="30"
         fill="#efefef"
         @click="openMusicList()"
-      />
+      /> -->
     </div>
     <div class="menu">
       <div class="volume" v-show="volumeShow">
