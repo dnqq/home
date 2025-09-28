@@ -1,32 +1,7 @@
 [
   {
-    "icon": "RssSquare",
-    "name": "FreshRss",
-    "link": "https://freshrss.sqmn.eu.org/"
-  },
-  {
-    "icon": "Blog",
-    "name": "RssHub",
-    "link": "https://rsshub.sqmn.eu.org/"
-  },
-  {
-    "icon": "Music",
-    "name": "音乐解锁",
-    "link": "https://unlock-music.sqmn.eu.org/"
-  },
-  {
     "icon": "Database",
-    "name": "网盘",
-    "link": "https://pan.sqmn.eu.org/"
-  },
-  {
-    "icon": "Toolbox",
-    "name": "IP检测",
-    "link": "https://ip.sqmn.eu.org/"
-  },
-  {
-    "icon": "Github",
-    "name": "Github代理",
-    "link": "https://gh-proxy.sqmn.eu.org/"
+    "name": "邮箱",
+    "link": "https://mail.sqmn.eu.org/"
   }
 ]
