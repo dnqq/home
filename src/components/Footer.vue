@@ -14,12 +14,12 @@
           <a :href="siteUrl">{{ siteAuthor }}</a>
         </span>
         <!-- 以下信息请不要修改哦 -->
-        <span class="hidden">
+        <!-- <span class="hidden">
           &amp;&nbsp;Made&nbsp;by
           <a :href="config.github" target="_blank">
             {{ config.author }}
           </a>
-        </span>
+        </span> -->
         <!-- 站点备案 -->
         <span>
           &amp;
@@ -59,7 +59,7 @@ const siteIcp = ref(import.meta.env.VITE_SITE_ICP);
 const siteAuthor = ref(import.meta.env.VITE_SITE_AUTHOR);
 const siteUrl = computed(() => {
   const url = import.meta.env.VITE_SITE_URL;
-  if (!url) return "https://www.imsyy.top";
+  if (!url) return "";
   // 判断协议前缀
   if (!url.startsWith("http://") && !url.startsWith("https://")) {
     return "//" + url;
