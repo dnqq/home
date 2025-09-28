@@ -5,6 +5,16 @@ import fetchJsonp from "fetch-jsonp";
  * 音乐播放器
  */
 
+// 随机打乱数组顺序
+const shuffleArray = (array) => {
+  const newArray = [...array];
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+};
+
 // 获取音乐播放列表
 export const getPlayerList = async (server, type, id) => {
   const res = await fetch(
@@ -21,21 +31,27 @@ export const getPlayerList = async (server, type, id) => {
       jsonpData.req_0.data.sip[0]
     ).replace("http://", "https://");
 
-    return data.map((v, i) => ({
+    const playerList = data.map((v, i) => ({
       name: v.name || v.title,
       artist: v.artist || v.author,
       url: domain + jsonpData.req_0.data.midurlinfo[i].purl,
       cover: v.cover || v.pic,
       lrc: v.lrc,
     }));
+    
+    // 随机打乱歌曲顺序
+    return shuffleArray(playerList);
   } else {
-    return data.map((v) => ({
+    const playerList = data.map((v) => ({
       name: v.name || v.title,
       artist: v.artist || v.author,
       url: v.url,
       cover: v.cover || v.pic,
       lrc: v.lrc,
     }));
+    
+    // 随机打乱歌曲顺序
+    return shuffleArray(playerList);
   }
 };
 
