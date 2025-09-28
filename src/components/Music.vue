@@ -4,11 +4,9 @@
     class="music"
     @mouseenter="volumeShow = true"
     @mouseleave="volumeShow = false"
-    v-show="store.musicOpenState"
   >
     <div class="btns">
       <span @click="openMusicList()">音乐列表</span>
-      <span @click="store.musicOpenState = false">回到一言</span>
     </div>
     <div class="control">
       <go-start theme="filled" size="30" fill="#efefef" @click="changeMusicIndex(0)" />
