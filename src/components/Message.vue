@@ -41,13 +41,19 @@ const siteLogo = import.meta.env.VITE_SITE_MAIN_LOGO;
 // 站点链接
 const siteUrl = computed(() => {
   const url = import.meta.env.VITE_SITE_URL;
-  if (!url) return "imsyy.top".split(".");
+  if (!url) return ["imsyy", "top"];
   // 判断协议前缀
+  let urlFormat;
   if (url.startsWith("http://") || url.startsWith("https://")) {
-    const urlFormat = url.replace(/^(https?:\/\/)/, "");
-    return urlFormat.split(".");
+    urlFormat = url.replace(/^(https?:\/\/)/, "");
+  } else {
+    urlFormat = url;
   }
-  return url.split(".");
+  const lastDotIndex = urlFormat.lastIndexOf(".");
+  if (lastDotIndex === -1) return [urlFormat, ""]; // 没有点的情况
+  const main = urlFormat.substring(0, lastDotIndex);
+  const top = urlFormat.substring(lastDotIndex + 1);
+  return [main, top];
 });
 
 // 简介区域文字
