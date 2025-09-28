@@ -15,6 +15,8 @@
         <section class="more" v-show="store.setOpenState" @click="store.setOpenState = false">
           <MoreSet />
         </section>
+        <!-- 音乐播放器 -->
+        <Music />
       </div>
       <!-- 移动端菜单按钮 -->
       <Icon
@@ -45,6 +47,7 @@ import Background from "@/components/Background.vue";
 import Footer from "@/components/Footer.vue";
 import Box from "@/views/Box/index.vue";
 import MoreSet from "@/views/MoreSet/index.vue";
+import Music from "@/components/Music.vue";
 import cursorInit from "@/utils/cursor.js";
 import config from "@/../package.json";
 
