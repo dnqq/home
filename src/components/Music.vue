@@ -5,8 +5,12 @@
     @mouseenter="volumeShow = true"
     @mouseleave="volumeShow = false"
   >
-    <div class="btns">
-      <span @click="openMusicList()">音乐列表</span>
+    <div class="name">
+      <span>{{
+        store.getPlayerData.name
+          ? store.getPlayerData.name + " - " + store.getPlayerData.artist
+          : "未播放音乐"
+      }}</span>
     </div>
     <div class="control">
       <go-start theme="filled" size="30" fill="#efefef" @click="changeMusicIndex(0)" />
@@ -17,15 +21,14 @@
         </div>
       </Transition>
       <go-end theme="filled" size="30" fill="#efefef" @click="changeMusicIndex(1)" />
+      <music-list
+        theme="filled"
+        size="30"
+        fill="#efefef"
+        @click="openMusicList()"
+      />
     </div>
     <div class="menu">
-      <div class="name" v-show="!volumeShow">
-        <span>{{
-          store.getPlayerData.name
-            ? store.getPlayerData.name + " - " + store.getPlayerData.artist
-            : "未播放音乐"
-        }}</span>
-      </div>
       <div class="volume" v-show="volumeShow">
         <div class="icon">
           <volume-mute theme="filled" size="24" fill="#efefef" v-if="volumeNum == 0" />
@@ -76,6 +79,7 @@ import {
   VolumeMute,
   VolumeSmall,
   VolumeNotice,
+  MusicList,
 } from "@icon-park/vue-next";
 import Player from "@/components/Player.vue";
 import { mainStore } from "@/store";
@@ -149,32 +153,16 @@ watch(
   border-radius: 6px;
   padding: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   animation: fade 0.5s;
-  .btns {
-    display: flex;
-    align-items: center;
-    margin-bottom: 6px;
-    span {
-      background: #ffffff26;
-      padding: 2px 8px;
-      border-radius: 6px;
-      margin: 0px 6px;
-      text-overflow: ellipsis;
-      overflow-x: hidden;
-      white-space: nowrap;
-      &:hover {
-        background: #ffffff4d;
-      }
-    }
-  }
   .control {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 20px;
     width: 100%;
     .state {
       transition: opacity 0.1s;
@@ -201,6 +189,14 @@ watch(
       }
     }
   }
+  .name {
+    width: 100%;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    white-space: nowrap;
+    margin-bottom: 20px;
+  }
   .menu {
     height: 26px;
     width: 100%;
@@ -209,14 +205,7 @@ watch(
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    .name {
-      width: 100%;
-      text-align: center;
-      text-overflow: ellipsis;
-      overflow-x: hidden;
-      white-space: nowrap;
-      animation: fade 0.3s;
-    }
+    margin-top: auto;
     .volume {
       width: 100%;
       padding: 0 12px;
