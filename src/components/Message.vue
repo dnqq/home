@@ -6,6 +6,7 @@
       <img class="logo-img" :src="siteLogo" alt="logo" />
       <div class="name text-hidden">
         <span class="bg">Hello World !</span>
+        <p class="slogan">人生如逆旅，我亦是行人。</p>
       </div>
     </div>
     <!-- 简介 -->
@@ -95,6 +96,10 @@ watch(
 
       .bg {
         font-size: clamp(2rem, 8vw, 3rem);
+      }
+      .slogan {
+        font-size: 1.2rem;
+        margin-top: 10px;
       }
 
       .sm {
