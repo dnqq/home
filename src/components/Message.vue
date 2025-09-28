@@ -1,37 +1,18 @@
 <template>
   <!-- 基本信息 -->
-  <div class="message">
+  <div class="message" @click="changeBox">
     <!-- Logo -->
     <div class="logo">
       <img class="logo-img" :src="siteLogo" alt="logo" />
       <div class="name text-hidden">
-        <span class="bg">Hello World !</span>
-        <p class="slogan">人生如逆旅，我亦是行人。</p>
-      </div>
-    </div>
-    <!-- 简介 -->
-    <div class="description cards" @click="changeBox">
-      <div class="content">
-        <Icon size="16">
-          <QuoteLeft />
-        </Icon>
-        <Transition name="fade" mode="out-in">
-          <div :key="descriptionText.hello + descriptionText.text" class="text">
-            <p>{{ descriptionText.hello }}</p>
-            <p>{{ descriptionText.text }}</p>
-          </div>
-        </Transition>
-        <Icon size="16">
-          <QuoteRight />
-        </Icon>
+        <span class="bg">{{ descriptionText.hello }}</span>
+        <p class="slogan">{{ descriptionText.text }}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { Icon } from "@vicons/utils";
-import { QuoteLeft, QuoteRight } from "@vicons/fa";
 import { Error } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
 const store = mainStore();
@@ -78,6 +59,7 @@ watch(
 
 <style lang="scss" scoped>
 .message {
+  cursor: pointer;
   .logo {
     display: flex;
     flex-direction: row;
@@ -127,38 +109,6 @@ watch(
     }
   }
 
-  .description {
-    padding: 1rem;
-    margin-top: 3.5rem;
-    max-width: 460px;
-    animation: fade 0.5s;
-
-    .content {
-      display: flex;
-      justify-content: space-between;
-
-      .text {
-        margin: 0.75rem 1rem;
-        line-height: 2rem;
-        margin-right: auto;
-        transition: opacity 0.2s;
-
-        p {
-          &:nth-of-type(1) {
-            font-family: "Pacifico-Regular";
-          }
-        }
-      }
-
-      .xicon:nth-of-type(2) {
-        align-self: flex-end;
-      }
-    }
-    @media (max-width: 720px) {
-      max-width: 100%;
-      pointer-events: none;
-    }
-  }
   // @media (max-width: 390px) {
   //   .logo {
   //     flex-direction: column;
