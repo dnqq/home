@@ -3,5 +3,10 @@
     "icon": "Envelope",
     "name": "邮箱",
     "link": "https://mail.sqmn.eu.org/"
+  },
+  {
+    "icon": "Toolbox",
+    "name": "脚本库",
+    "link": "https://script.sqmn.eu.org/"
   }
 ]
